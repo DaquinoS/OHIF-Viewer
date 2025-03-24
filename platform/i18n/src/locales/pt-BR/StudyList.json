@@ -1,0 +1,20 @@
+{
+  "AccessionNumber": "Accession #",
+  "ClearFilters": "Limpar Filtros",
+  "Description": "Descrição",
+  "Empty": "Não Informado",
+  "Filter list to 100 studies or less to enable sorting": "Filter the list to 100 studies or less to enable sorting",
+  "Instances": "Instâncias",
+  "Modality": "Modalidade",
+  "MRN": "MRN",
+  "Next": "Próximo >",
+  "No studies available": "Nenhum PET disponível",
+  "Number of studies": "Nº de PETs",
+  "Page": "Página",
+  "PatientName": "Nome do PET",
+  "Previous": "< Voltar",
+  "Results per page": "Resultados por página",
+  "StudyDate": "Study Date",
+  "StudyList": "Pet's",
+  "Upload": "Upload"
+}

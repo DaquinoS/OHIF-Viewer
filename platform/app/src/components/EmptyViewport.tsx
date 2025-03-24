@@ -1,7 +1,7 @@
 import React from 'react';
 
 function EmptyViewport() {
-  return <div></div>;
+  return <div>Nenhum registro encontrado</div>;
 }
 
 export default EmptyViewport;

@@ -20,8 +20,8 @@ export default {
   ...fr,
   ...ja_JP,
   ...nl,
-  ...pt_BR,
   ...vi,
   ...zh,
   ...test_lng,
+  ...pt_BR,
 };

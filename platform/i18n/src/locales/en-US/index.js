@@ -23,7 +23,7 @@ import Messages from './Messages.json';
 import WindowLevelActionMenu from './WindowLevelActionMenu.json';
 
 export default {
-  'en-US': {
+  'pt-BR': {
     AboutModal,
     Buttons,
     CineDialog,

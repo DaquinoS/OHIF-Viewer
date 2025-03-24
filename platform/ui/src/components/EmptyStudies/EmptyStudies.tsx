@@ -11,15 +11,16 @@ const EmptyStudies = ({ className = '' }) => {
   const { t } = useTranslation('StudyList');
   return (
     <div className={classnames('inline-flex flex-col items-center', className)}>
-      <Icon
-        name="magnifier"
+      <img
+        src="/assets/images/empty_logo.png"
+        alt={t('Nenhum registro encontrado')}
         className="mb-4"
       />
       <Typography
-        className="text-primary-light"
+        className="text-white"
         variant="h5"
       >
-        {t('No studies available')}
+        {t('Nenhum registro encontrado')}
       </Typography>
     </div>
   );

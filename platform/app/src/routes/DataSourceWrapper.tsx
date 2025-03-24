@@ -165,59 +165,6 @@ function DataSourceWrapper(props: withAppTypes) {
 
       setIsLoading(false);
     }
-
-    try {
-      // Cache invalidation :thinking:
-      // - Anytime change is not just next/previous page
-      // - And we didn't cross a result offset range
-      const isSamePage = data.pageNumber === queryFilterValues.pageNumber;
-      const previousOffset =
-        Math.floor((data.pageNumber * data.resultsPerPage) / STUDIES_LIMIT) * (STUDIES_LIMIT - 1);
-      const newOffset =
-        Math.floor(
-          (queryFilterValues.pageNumber * queryFilterValues.resultsPerPage) / STUDIES_LIMIT
-        ) *
-        (STUDIES_LIMIT - 1);
-      // Simply checking data.location !== location is not sufficient because even though the location href (i.e. entire URL)
-      // has not changed, the React Router still provides a new location reference and would result in two study queries
-      // on initial load. Alternatively, window.location.href could be used.
-      const isLocationUpdated =
-        typeof data.location === 'string' || !areLocationsTheSame(data.location, location);
-      const isDataInvalid =
-        !isSamePage || (!isLoading && (newOffset !== previousOffset || isLocationUpdated));
-
-      if (isDataInvalid) {
-        getData().catch(e => {
-          console.error(e);
-
-          const { configurationAPI, friendlyName } = dataSource.getConfig();
-          // If there is a data source configuration API, then the Worklist will popup the dialog to attempt to configure it
-          // and attempt to resolve this issue.
-          if (configurationAPI) {
-            return;
-          }
-
-          servicesManager.services.uiModalService.show({
-            title: 'Data Source Connection Error',
-            containerDimensions: 'w-1/2',
-            content: () => {
-              return (
-                <div>
-                  <p className="text-red-600">Error: {e.message}</p>
-                  <p>
-                    Please ensure the following data source is configured correctly or is running:
-                  </p>
-                  <div className="mt-2 font-bold">{friendlyName}</div>
-                </div>
-              );
-            },
-          });
-        });
-      }
-    } catch (ex) {
-      console.warn(ex);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, location, params, isLoading, setIsLoading, dataSource, isDataSourceInitialized]);
   // queryFilterValues
 
